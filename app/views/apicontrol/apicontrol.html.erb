@@ -1,0 +1,46 @@
+<div style= "text-align:center;line-height:100%;padding:10px;">
+
+<p>アクセスユーザー一覧</p>
+
+<% $list=[] %>
+
+<% @res.each do |guest| %>
+
+<table border =1 cellspacing="0" cellpadding="3">
+<tr>
+<td width="300" height="1"><p>name</p></td>
+<td width="300" height="1"><p>利用開始時刻</p></td>
+<td width="300" height="1"><p>利用終了時刻</p></td>
+<td width="300" height="1"><p>現在時刻</p></td>
+<td width="300" height="1"><p>id</p></td>
+<td width="300" height="1"><p>メールアドレス</p></td>
+<td width="300" height="1"><p>メール</p></td>
+</tr>
+<th width="450" height="1"><%= guest["attributes"]["name"] %> </th>
+<% start = guest["attributes"]["starts_at"]%>
+<td width="450" height="1"><%= DateTime.parse(start)%></td>
+<td width="450" height="1"><%= guest["attributes"]["ends_at"] %> </td>
+<% time = DateTime.now %>
+<td width="450" heigth="1"><%= time %> </td>
+<td width="450" height="1"><%= guest["id"] %></td>
+<td width="450" height="1"><%= guest["attributes"]["email"] %> </td>
+<td width="450" height="1" color="red">
+<% sabun = DateTime.parse(start)-DateTime.now
+   @maru = ""
+   if(sabun)<45 and (sabun)>30
+   @maru="○"
+   $list.push(guest["id"])
+   else
+   
+   end %>
+<%= @maru%>
+</td>
+</table>
+
+<% end %>
+
+<%= link_to "送信", sendmail_sendmail_path($list) %>
+
+
+
+</div>

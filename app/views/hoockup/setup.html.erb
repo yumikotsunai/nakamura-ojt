@@ -1,0 +1,22 @@
+<div style= "text-align:center;line-height:100%;padding:10px;">
+    <h2>Aouth認証</h2>
+    <p>以下に、認証情報を入力してください</p>
+</div>
+
+<div style= "text-align:center;line-height:100%;padding:10px;">
+    <!--getocode.htmlに送信-->
+    <%= form_tag hoockup_getcode_path do %>
+    
+    <p>クライアントID</p>
+    <!--<input type="text" class="form-control title-field" name="clientId" style="width:500px" value="b0e0f164abc0b47134b42efa8927082cdaeff8a59b6591eaaa73caf9df2b12e1">-->
+    <input type="text" class="form-control title-field" name="clientId" style="width:500px" value="0b77bce4e984ce08387312102f2cbc3d9528a7719183a441a2b9becb76379c88">
+    <p>クライアントシークレット</p>
+    <!--<input type="text" class="form-control title-field" name="clientSecret" style="width:500px" value="b6ab60a1647db4771e025e07e3de73e06eee7c134bbe11a88df507885c666842">-->
+    <input type="text" class="form-control title-field" name="clientSecret" style="width:500px" value="a79e67cc0d3b885b97da3db10dc7d01006fcc23d96a805f3b2f3af54a46d94dd">
+    <p>承認済みのリダイレクト</p>
+    <input type="text" class="form-control title-field" name="redirecturi" style="width:500px" value="https://practice2-tadashinakamura.c9users.io/hoockup/callback">
+    
+    <input type="submit" value="送信">
+    
+    <% end %>
+</div>
